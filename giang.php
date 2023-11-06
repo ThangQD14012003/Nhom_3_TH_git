@@ -1,203 +1,158 @@
+<?php
+define("_WEB_HOST_ROOT", "http:/minhgiang.net");
+echo _WEB_HOST_ROOT;
+ //hoặc 
+ echo "<br>";
+ const _WEB_PATH_ROOT = "http:/minhgianght.net";
+ echo _WEB_PATH_ROOT;
+ ?>
+ <?php
+ echo "<hr>";
+ echo "<br>";
+ $a=2;
+ $b=15;
+ if($a==10){
+    echo "Đúng";
+ } else if ($a>10) {
+    echo "Sai";
+ } else {
+    echo "a bé hơn 10";
+ }
+ ?>
+
+ <?php
+echo "<hr>";
+ echo "<br>";
+//  kiểm tra thứ trong tuần 
+/* $a=1 -> chủ nhật 
+$a=2 ->t2 
+...
+a=7 -> t7
+*/
+//Câu rẽ nhánh: switch case 
+ $a=10;
+ switch($a){
+    case 1:
+        echo 'hôm nay là chủ nhật';
+    break;
+    
+    case 2: 
+        echo 'Hôm nay là thứ 2';
+    break;
+
+    case 3:
+        echo 'hôm nay là thứ 3';
+    break;
+    
+    case 4: 
+        echo 'hôm nay là thứ 4';
+    break;
+
+    case 5:
+        echo 'hôm nay là thứ 5';
+    break;
+
+    case 6: 
+        echo 'hôm nay là thứ 6';
+    break;
+
+    case 7:
+        echo 'hôm nay là thứ 7';
+    break;
+    
+    default: 
+        echo 'không hợp lệ';
+    break;
+ }
+echo "<hr>";
+?>
+<!-- Câu lệnh Switch case lồng if else
+Kiểm tra số ngày trong tháng 
+input: Nhập tháng, năm 
+output: đưa ra số ngày trong tháng 
+tháng 31 ngày: 1, 3, 5, 7, 8, 10, 12
+tháng 30 ngày: 4, 6, 9, 11
+tháng 28, 29 ngày: 2, năm nhuận = chia hết cho 4-->
+<?php
+// input
+$month=2;
+$year=2024;
+echo "<br>";
+switch ($month){
+    case 2: 
+        if ($year%4==0){
+            echo "Tháng 2 có 29 ngày";
+        } else{
+            echo "Tháng 2 có 28 ngày";
+        }
+    break;
+    case 1:
+    case 3:
+    case 5: 
+    case 7: 
+    case 8: 
+    case 10:
+    case 12:
+        echo "Tháng có 31 ngày";
+    break;
+
+    case 4:
+    case 6: 
+    case 9: 
+    case 11:
+        echo "Tháng có 30 ngày";
+    break;
+
+    default:
+        echo "Không hợp lệ";
+    break;
+}
+?> 
+<!-- Vòng lặp for trong PHP
+for ($ten_bien=gia_tri_dau;dieu_kien_dung;bieu_thuc_tang){
+    //cau lenh
+}
+ -->
+ <?php
+//Vòng lặp for tăng
+echo "<hr>";
+echo "<br>";
+ for($i=0;$i<=10;$i++){
+    echo "Test: ".$i;
+    echo "<br>";
+ }
+ //hoặc 
+ echo "<hr>";
+ echo "<br>";
+ $count=10;
+ $start=0;
+ for($i=$start;$i<=$count;$i+=2){
+    echo "Đây là vòng lặp thứ: ".$i;
+    echo "<br>";
+ }
+
+//  Tính tổng S=1+2+3+4...+n
+echo "<hr>";
+echo "<br>";
+$n=5;
+$s=0; //giả định =0;
+for ($i=1; $i<=$n; $i++){
+    $s+=$i; //s=s+i;
+}
+echo 'tổng S = '.$s;
+?>
 <!-- 
+    s=0;
+    i=1 => s=s+i=0+1;
+    i=2 => s=s+i=1+2=3;
+    i=3 => s=s+i=3+3=6;
+    i=4 => s=s+i=6+4=10;
+    i=5 => s=s+i=10+5=15;
+ -->
 <?php
-echo 'Hello world!';
-echo '<br>';
-?>
-
-<?php
-echo str_word_count ('Hoàng Thị Minh Giang');
-echo '<br>';
-?>
-
-<?php
-$x=5;
-$result=$x*$x*$x;
-echo 'Lập phương của result là'." ".$result;
-echo '<br>';
-?>
-
-<?php
-echo strrev('Hoang Thi Minh Giang');
-echo '<br>';
-?> -->
-
-<!--Câu 1: Viết một chương trình PHP để đếm số ký tự trong một chuỗi sử dụng hàm strlen() -->
-<?php
-echo strlen('1. Hoàng Thị Minh Giang');
-echo '<br>';
-?>
-
-<!-- Câu 2: Viết một chương trình PHP để đếm số từ trong một chuỗi sử dụng hàm str_word_count().-->
-<?php
-echo str_word_count('2. Hoang Thi Minh Giang');
-echo '<br>';
-?>  
-
-<!-- Câu 3: Viết một chương trình PHP để đảo ngược một chuỗi sử dụng hàm strrev(). -->
-<?php
-echo strrev('3. Hoang Thi Minh Giang');
-echo '<br>';
-?>
-
-<!-- Câu 4: Viết một chương trình PHP để tìm kiếm một chuỗi con trong một chuỗi sử dụng hàm strpos(). -->
-<?php
-echo strpos('4. Hoàng Thị Minh Giang','Giang');
-echo '<br>';
-?>
-
-<!-- Câu 5: Thay thế Linh -> Minh -->
-<?php
-echo str_replace('Linh','Minh','Hoàng Thị Linh Giang');
-echo '<br>';
-?>
-
-<!-- Câu 6: Viết một chương trình PHP để kiểm tra xem một chuỗi có bắt đầu bằng một chuỗi con khác không sử dụng hàm strncmp(). -->
-<?php
-$x='Hello';
-$y='Hello world!';
-$result= strncmp($x,$y,5);
-    if($result == 0){
-        echo 'chuỗi có bắt đầu bằng một chuỗi con của x';
-    }
-    else {
-        echo 'Chuỗi bắt đầu bằng một chuỗi con khác';
-    }
-echo '<br>';
-?>
-
-<!-- Câu 7: Viết một chương trình PHP để chuyển đổi một chuỗi thành chữ hoa sử dụng hàm strtoupper(). -->
-<?php
-echo strtoupper('7. hoàng thị minh giang');
-echo '<br>';
-?>
-
-<!-- Câu 8: Viết một chương trình PHP để chuyển đổi một chuỗi thành chữ thường sử dụng hàm strtolower(). -->
-<?php
-echo strtolower('8. HOÀNG THỊ MINH GIANG');
-echo '<br>';
-?>
-
-<!-- Câu 9: Viết một chương trình PHP để chuyển đổi một chuỗi thành chuỗi in hoa chữ cái đầu tiên của mỗi từ sử dụng hàm ucwords(). -->
-<?php
-echo ucwords('9. hoàng thị minh giang');
-echo '<br>';
-?>
-
-<!-- Câu 10: Viết một chương trình PHP để loại bỏ khoảng trắng ở đầu và cuối chuỗi sử dụng hàm trim(). -->
-<?php
-echo trim(' 10. hoàng thị minh giang ');
-echo '<br>';
-?>
-
-<!-- Câu 11: Viết một chương trình PHP để loại bỏ ký tự đầu tiên của một chuỗi sử dụng hàm ltrim(). -->
-<?php
-$originalString = 'Hello, World!';
-$firstCharToRemove = $originalString[0]; // Lấy ký tự đầu tiên
-$modifiedString = ltrim($originalString, $firstCharToRemove);
-echo $modifiedString;
-echo '<br>';
-?>
-
-
-<!-- Câu 12: Viết một chương trình PHP để loại bỏ ký tự cuối cùng của một chuỗi sử dụng hàm rtrim(). -->
-<?php
-$originalString = 'Hello, World!';
-$lastCharToRemove = $originalString[strlen($originalString) - 1]; // Lấy ký tự cuối cùng
-$modifiedString = rtrim($originalString, $lastCharToRemove);
-echo $modifiedString;
-echo '<br>';
-?>
-
-
-<!-- Câu 13: Viết một chương trình PHP để tách một chuỗi thành một mảng các phần tử sử dụng hàm explode().-->
-<?php
-$x=explode(' ','hoàng thị minh giang');
-var_dump ($x);
-echo '<br>';
-?>
-
-<!-- Câu 14: Viết một chương trình PHP để nối các phần tử của một mảng thành một chuỗi sử dụng hàm implode(). -->
-<?php
-$array=array('Hoàng','Thị','Minh','Giang');
-$x=' ';
-$y=implode($x,$array);
-var_dump ($y);
-echo '<br>';
-?>
-
-<!-- Câu 15: Viết một chương trình PHP để thêm một chuỗi vào đầu hoặc cuối của một chuỗi sử dụng hàm str_pad(). -->
-<?php
-$x='Xin chào, ';
-$y='Chúng tôi là K57SD2!';
-$maxLength = strlen($x) + strlen($y); // Độ dài mục tiêu là tổng độ dài của $x và $y
-
-// Thêm chuỗi vào đầu
-$xyz = str_pad($x, $maxLength, $y, STR_PAD_LEFT);
-echo "Thêm vào đầu: $xyz<br>";
-
-// Thêm chuỗi vào cuối
-$xyt = str_pad($x, $maxLength, $y, STR_PAD_RIGHT);
-echo "Thêm vào cuối: $xyt<br>";
-?>
-
-<!-- Câu 16: Viết một chương trình PHP để kiểm tra xem một chuỗi có kết thúc bằng một chuỗi con khác không sử dụng hàm strrchr(). -->
-<?php
-$x='Say hello word';
-$y='Hello world!';
-$yLength = strlen($y);
-
-if (substr($y, -$yLength) === $y) {
-    echo 'Chuỗi kết thúc bằng chuỗi con y';
-} else {
-    echo 'Chuỗi kết thúc bằng chuỗi con khác';
+echo "<hr>";
+//vòng lặp for giảm
+$n = 10;
+for($i = $n; $i>=1; $i--){
+    echo "Đây là vòng lặp thứ: ".$i."<br>";
 }
-echo '<br>';
-?>
-
-<!-- Câu 17: Viết một chương trình PHP để kiểm tra xem một chuỗi có chứa một chuỗi con khác không sử dụng hàm strstr(). -->
-<?php
-$x = 'Say Hello word!';
-$y = 'Hello world!';
-
-if (strstr($x, $y) !== false) {
-    echo 'Chuỗi chứa chuỗi con y';
-} else {
-    echo 'Chuỗi không chứa chuỗi con y';
-}
-echo '<br>';
-?>
-
-<!-- Câu 18: Viết một chương trình PHP để thay thế tất cả các ký tự trong một chuỗi không phải là chữ cái hoặc số bằng một ký tự khác sử dụng hàm preg_replace(). -->
-<?php
-$x = 'Ch@o bạn!';
-$pattern = '/[^a-zA-Z0-9]+/';
-$replacement = '_';
-
-$y = preg_replace($pattern, $replacement, $x);
-echo $y;
-echo '<br>';
-?>
-
-<!-- Câu 19: Viết một chương trình PHP để kiểm tra xem một chuỗi có phải là một số nguyên hay không sử dụng hàm is_int(). -->
-<?php
-$x = '1245.7896';
-$intValue = (int) $x;
-
-if ($x == $intValue && is_int($intValue)) {
-    echo 'Chuỗi là số nguyên';
-} else {
-    echo 'Chuỗi không phải là số nguyên';
-}
-echo '<br>';
-?>
-
-<!-- Câu 20: Viết một chương trình PHP để kiểm tra xem một chuỗi có phải là một email hợp lệ hay không sử dụng hàm filter_var(). -->
-<?php
-$email = 'example@email.com';
-
-if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    echo 'Email hợp lệ';
-} else {
-    echo 'Email không hợp lệ';
-}
-?>
